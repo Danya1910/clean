@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import '../domain/entities/cart_item.dart';
-import '../domain/entities/product_item.dart';
-import '../domain/repositories/product_repository.dart';
+import 'cart_item.dart';
+import 'product_item.dart';
+import '../repositories/product_repository.dart';
 
 class CartProvider with ChangeNotifier {
   final ProductRepository productRepository;
-  Map<int, CartItem> _cartItems = {};
+  final Map<int, CartItem> _cartItems = {};
 
   List<ProductItem>? _cachedProducts;
 

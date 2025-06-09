@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../data/cart_provider.dart';
+import '../../domain/entities/cart_provider.dart';
 import '../../domain/entities/product_item.dart';
 
 class ProductCard extends StatelessWidget {
@@ -78,15 +78,15 @@ class ProductCard extends StatelessWidget {
                 if (cartProvider.cartItems.containsKey(product.id)) ...[
                   IconButton(
                     style: ButtonStyle(
-                      shape: MaterialStateProperty.all(
+                      shape: WidgetStateProperty.all(
                         RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
                       ),
-                      backgroundColor: MaterialStateProperty.all(
+                      backgroundColor: WidgetStateProperty.all(
                         Colors.black12,
                       ),
-                      fixedSize: MaterialStateProperty.all(Size(25, 25)),
+                      fixedSize: WidgetStateProperty.all(Size(25, 25)),
                     ),
                     onPressed: ()=>cartProvider.removeQuantity(product.id),
                     icon: Icon(Icons.remove),
@@ -105,15 +105,15 @@ class ProductCard extends StatelessWidget {
                   ),
                   IconButton(
                     style: ButtonStyle(
-                      shape: MaterialStateProperty.all(
+                      shape: WidgetStateProperty.all(
                         RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
                       ),
-                      backgroundColor: MaterialStateProperty.all(
+                      backgroundColor: WidgetStateProperty.all(
                         Colors.black12,
                       ),
-                      fixedSize: MaterialStateProperty.all(Size(25, 25)),
+                      fixedSize: WidgetStateProperty.all(Size(25, 25)),
                     ),
                     onPressed: (){
                       cartProvider.addQuantity(product);
@@ -140,15 +140,15 @@ class ProductCard extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 40.0, top: 30.0),
                     child: IconButton(
                       style: ButtonStyle(
-                        shape: MaterialStateProperty.all(
+                        shape: WidgetStateProperty.all(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
                           ),
                         ),
-                        backgroundColor: MaterialStateProperty.all(
+                        backgroundColor: WidgetStateProperty.all(
                           Colors.orange,
                         ),
-                        fixedSize: MaterialStateProperty.all(Size(25, 25)),
+                        fixedSize: WidgetStateProperty.all(Size(25, 25)),
                       ),
                       onPressed: (){
                         cartProvider.addQuantity(product);

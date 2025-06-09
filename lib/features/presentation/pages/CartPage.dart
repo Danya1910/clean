@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../data/cart_provider.dart';
+import '../../domain/entities/cart_provider.dart';
 import '../../domain/entities/product_item.dart';
 
 class CartPage extends StatelessWidget {
@@ -150,7 +150,7 @@ class CartPage extends StatelessWidget {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(15),
                               child: Image.asset(
-                                cartItem!.product.image,
+                                cartItem.product.image,
                                 width: 160,
                                 height: 160,
                                 fit: BoxFit.cover,
@@ -226,7 +226,7 @@ class CartPage extends StatelessWidget {
                                   children: [
                                     IconButton(
                                       style: ButtonStyle(
-                                        shape: MaterialStateProperty.all(
+                                        shape: WidgetStateProperty.all(
                                           RoundedRectangleBorder(
                                             borderRadius:
                                             BorderRadius.circular(
@@ -235,11 +235,11 @@ class CartPage extends StatelessWidget {
                                           ),
                                         ),
                                         backgroundColor:
-                                        MaterialStateProperty.all(
+                                        WidgetStateProperty.all(
                                           Colors.black12,
                                         ),
                                         fixedSize:
-                                        MaterialStateProperty.all(
+                                        WidgetStateProperty.all(
                                           Size(25, 25),
                                         ),
                                       ),
@@ -266,7 +266,7 @@ class CartPage extends StatelessWidget {
                                     ),
                                     IconButton(
                                       style: ButtonStyle(
-                                        shape: MaterialStateProperty.all(
+                                        shape: WidgetStateProperty.all(
                                           RoundedRectangleBorder(
                                             borderRadius:
                                             BorderRadius.circular(
@@ -275,11 +275,11 @@ class CartPage extends StatelessWidget {
                                           ),
                                         ),
                                         backgroundColor:
-                                        MaterialStateProperty.all(
+                                        WidgetStateProperty.all(
                                           Colors.black12,
                                         ),
                                         fixedSize:
-                                        MaterialStateProperty.all(
+                                        WidgetStateProperty.all(
                                           Size(25, 25),
                                         ),
                                       ),

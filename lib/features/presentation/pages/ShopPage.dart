@@ -1,8 +1,10 @@
+import 'package:clean_shop/features/domain/entities/cart_provider.dart';
+import 'package:clean_shop/features/presentation/pages/login_page.dart';
+import 'package:clean_shop/features/presentation/widgets/bottom_navigation_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../domain/entities/product_item.dart';
 import '../pages/CartPage.dart';
-import '../../data/cart_provider.dart';
 import '../widgets/ProductCard.dart';
 
 class ShopPage extends StatefulWidget {
@@ -14,15 +16,15 @@ class ShopPage extends StatefulWidget {
 
 class _ShopPageState extends State<ShopPage>
     with SingleTickerProviderStateMixin {
-  Map<int, int> _counts = {};
-  Map<int, bool> _showMoreButtons = {};
+  final Map<int, int> _counts = {};
+  final Map<int, bool> _showMoreButtons = {};
   late AnimationController _animationController;
   late Animation<double> _animation;
 
   final List<String> categories = [
     'Новинки',
     'Комбо',
-    'Сеты и пары',
+    'Сеты и пары',  
     'Бургеры и роллы',
     'Бургеры и роллы',
   ];
@@ -54,6 +56,7 @@ class _ShopPageState extends State<ShopPage>
     final cartProvider = Provider.of<CartProvider>(context);
 
     return Scaffold(
+      extendBody: false,
       appBar: AppBar(
         title: Row(
           mainAxisSize: MainAxisSize.min,
@@ -72,7 +75,7 @@ class _ShopPageState extends State<ShopPage>
         ),
         centerTitle: true,
         backgroundColor: const Color(0xFF0F5E0B),
-        leading: IconButton(
+        leading: IconButton(  
           icon: const Icon(Icons.search, color: Colors.white),
           tooltip: 'search',
           onPressed: () {},
@@ -102,7 +105,7 @@ class _ShopPageState extends State<ShopPage>
                       child: child,
                     );
                   },
-                  transitionDuration: const Duration(milliseconds: 400),
+                  transitionDuration: const Duration(milliseconds: 300),
                 ),
               );
             },
@@ -116,7 +119,7 @@ class _ShopPageState extends State<ShopPage>
           return
             Column(
               children: [
-                Container(
+                SizedBox(
                   height: 35,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
@@ -144,7 +147,7 @@ class _ShopPageState extends State<ShopPage>
                         return Center(
                           child: Text(
                             'Ошибка: ${snapshot.error}',
-                            style: const TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.black),
                           ),
                         );
                       } else
@@ -152,7 +155,7 @@ class _ShopPageState extends State<ShopPage>
                         return const Center(
                           child: Text(
                             'Нет товаров',
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.black),
                           ),
                         );
                       } else {
@@ -193,60 +196,22 @@ class _ShopPageState extends State<ShopPage>
       ),
 
       bottomNavigationBar: BottomAppBar(
+        color: Colors.white,
+        height: 50,
+        padding: EdgeInsets.zero, 
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            TextButton(
-              onPressed: () {
-                // Действие для кнопки "Начало"
-              },
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: const [Icon(Icons.home_outlined), Text('Начало')],
-              ),
-            ),
-            TextButton(
-              onPressed: () {
-                // Действие для кнопки "Начало"
-              },
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: const [Icon(Icons.money), Text('Начало')],
-              ),
-            ),
-            TextButton(
-              onPressed: () {
-                // Действие для кнопки "Начало"
-              },
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: const [Icon(Icons.fastfood), Text('Начало')],
-              ),
-            ),
-            TextButton(
-              onPressed: () {
-                // Действие для кнопки "Начало"
-              },
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: const [Icon(Icons.map), Text('Начало')],
-              ),
-            ),
-            TextButton(
-              onPressed: () {
-                // Действие для кнопки "Начало"
-              },
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: const [
-                  Icon(Icons.more_horiz_outlined),
-                  Text('Начало'),
-                ],
-              ),
-            ),
+            navButton(Icons.home_outlined, 'Начало'),
+            navButton(Icons.money, 'Финансы'),
+            navButton(Icons.fastfood, 'Еда'),
+            navButton(Icons.map, 'Карта'),
+            navButton(Icons.more_horiz_outlined, 'Ещё'),
           ],
         ),
       ),
     );
   }
 }
+

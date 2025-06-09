@@ -1,7 +1,7 @@
+import 'package:clean_shop/features/domain/entities/cart_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:postgres/postgres.dart';
 import 'package:provider/provider.dart';
-import 'features/data/cart_provider.dart';
 import 'features/data/repositories/product_repository_impl.dart';
 import 'features/presentation/pages/ShopPage.dart';
 
@@ -12,6 +12,7 @@ void main() {
     'shopdb',
     username: 'postgres',
     password: 'Daniil1910',
+    timeoutInSeconds: 30,
   );
 
   runApp(

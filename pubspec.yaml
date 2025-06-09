@@ -30,9 +30,17 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  postgres: ^2.3.2
+  postgres: ^2.5.0
   provider: any
-
+  flutter_animate: any
+  http: ^0.13.5
+  shared_preferences: ^2.0.15
+  flutter_secure_storage: ^8.0.0
+  shelf: ^1.4.0
+  shelf_router: ^1.1.0
+  crypto: ^3.0.2
+  dart_jsonwebtoken: ^3.0.1
+  
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
